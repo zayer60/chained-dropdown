@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chained dropdown</title>
+    </head>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+
+            
+            document.querySelector('#country').onchange=(country,state)=>{
+
+                var country=document.querySelector('#country');
+                var state=document.querySelector('#state');
+                state.innerHTML="";
+
+
+                if(country.value=="india"){
+                    var optionArray=['Maharashtra','UP','Uttarakhand','Gujrat','TamilNadu','Haryana'];
+                   
+                }else if(country.value=="pakistan"){
+                    var optionArray=['Peshawar','Islamabad','Karachi','Lahore','Rawalpandi'];
+                
+                }
+
+                for(var i=0;i<optionArray.length;i++){
+                    var option=document.createElement('option');
+                    option.innerHTML=optionArray[i];
+                    state.append(option);
+
+                }
+
+               
+
+            }          
+        });
+    </script>
+    <body>
+        <div>
+            <label>Select Country</label>
+            <select id="country" >
+                <option value='country'>Country</option>
+                <option id='india' value="india">India</option>
+                <option id ='pakistan' value="pakistan">Pakistan</option>
+            </select>
+            <br />
+            <br />
+            <label>Select State</label>
+            <select id="state"></select>
+        </div>
+    </body>
+</html>
